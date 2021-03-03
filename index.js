@@ -161,7 +161,7 @@ secureBtn.addEventListener("click", () => {
     generatedPassword = true;
     sliderValue.innerHTML = "length: 16";
     sliderValue.setAttribute("data-length", "16");
-    document.getElementById("my-form").reset();
+    slider.querySelector("input").value = "16";
     applyFill(slider.querySelector("input"));
     copyInfo.style.transform = "translateY(0%)";
     copyInfo.style.opacity = "0.75";
