@@ -75,8 +75,10 @@ const lowercaseEl = document.getElementById("lowercase");
 const numberEl = document.getElementById("number");
 const symbolEl = document.getElementById("symbol");
 
-// Button to generate the password
+// Button to generate the custom password
 const generateBtn = document.getElementById("generate");
+// Button to generate the secure password
+const secureBtn = document.getElementById("generateSecure");
 // Button to copy the text
 const copyBtn = document.getElementById("copy-btn");
 // Result viewbox container
@@ -137,7 +139,7 @@ copyBtn.addEventListener("click", () => {
     copiedInfo.style.opacity = "0.75";
 });
 
-// When Generate is clicked Password id generated.
+// When Generate custom is clicked Password id generated.
 generateBtn.addEventListener("click", () => {
     const length = +lengthEl.value;
     const hasLower = lowercaseEl.checked;
@@ -152,7 +154,17 @@ generateBtn.addEventListener("click", () => {
     copiedInfo.style.opacity = "0";
 });
 
-// Function responsible to generate password and then returning it.
+// When Generate secure is clicked Password id is generated.
+secureBtn.addEventListener("click", () => {
+    resultEl.innerText = generateSecure(true, true, true, true);
+    generatedPassword = true;
+    copyInfo.style.transform = "translateY(0%)";
+    copyInfo.style.opacity = "0.75";
+    copiedInfo.style.transform = "translateY(200%)";
+    copiedInfo.style.opacity = "0";
+});
+
+// Function responsible to generate custom password and then returning it.
 function generatePassword(length, lower, upper, number, symbol) {
     let generatedPassword = "";
     const typesCount = lower + upper + number + symbol;
@@ -167,6 +179,23 @@ function generatePassword(length, lower, upper, number, symbol) {
         });
     }
     return generatedPassword.slice(0, length);
+}
+
+//Function to generate secure password and returning it.
+function generateSecure(lower, upper, number, symbol) {
+    let generatedPassword = "";
+    const typesCount = lower + upper + number + symbol;
+    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+    if (typesCount === 0) {
+        return "";
+    }
+    for (let i = 0; i < 16; i++) {
+      typesArr.forEach(type => {
+        const funcName = Object.keys(type)[0];
+        generatedPassword += randomFunc[funcName]();
+      });
+    }
+    return generatedPassword.slice(0, 16);
 }
 
 // function that handles the checkboxes state, so at least one needs to be selected. The last checkbox will be disabled.

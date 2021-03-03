@@ -30,7 +30,7 @@ button {
   margin: 40px 0;
   width: 40%;
   height: 70%;
-  padding: 10px 25px;
+  padding: 10px 25px 30px;
   background: #090c50;
   border-radius: 40px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.35), 0 8px 12px rgba(0, 0, 0, 0.15);
@@ -41,8 +41,7 @@ button {
 
 .container h2.title {
   font-size: 2.5rem;
-  margin: 10px -5px;
-  margin-bottom: 30px;
+  margin: 10px -5px 30px;
   color: #fff;
   text-align: center;
 }
@@ -315,7 +314,7 @@ button {
   width: 100%;
   height: 50px;
   margin: 10px 0;
-  border-radius: 8px;
+  border-radius: 15px;
   color: #fff;
   border: none;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -325,6 +324,13 @@ button {
   cursor: pointer;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+.btn.generate:hover {
+  transform: scale(1.02);
+  -webkit-box-shadow: 0 4px 8px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.08);
 }
 
 .btn.generate:active {
