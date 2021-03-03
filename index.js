@@ -19,6 +19,7 @@ slider.querySelector("input").addEventListener("input", event => {
     applyFill(event.target);
     changeLength();
 });
+
 // Selecting the range input and passing it in the applyFill func.
 applyFill(slider.querySelector("input"));
 
@@ -158,6 +159,10 @@ generateBtn.addEventListener("click", () => {
 secureBtn.addEventListener("click", () => {
     resultEl.innerText = generateSecure(true, true, true, true);
     generatedPassword = true;
+    sliderValue.innerHTML = "length: 16";
+    sliderValue.setAttribute("data-length", "16");
+    document.getElementById("my-form").reset();
+    applyFill(slider.querySelector("input"));
     copyInfo.style.transform = "translateY(0%)";
     copyInfo.style.opacity = "0.75";
     copiedInfo.style.transform = "translateY(200%)";
