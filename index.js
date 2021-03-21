@@ -31,7 +31,7 @@ function applyFill(slider) {
     sliderValue.setAttribute("data-length", slider.value);
 }
 
-// Object of all the function names that we will use to create random letters of password
+// Object of all the function names that we will use to create random letters of password.
 const randomFunc = {
     lower: getRandomLower,
     upper: getRandomUpper,
